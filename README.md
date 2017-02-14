@@ -1,3 +1,38 @@
-# My Awesome Book
+# Django-Tube
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+> 이 튜토리얼은 Creative Commons Attribution-ShareAlike 4.0 International 저작권을 따르고 있습니다. 라이센스 전문은
+>
+> [http://creativecommons.org/licenses/by-sa/4.0](http://creativecommons.org/licenses/by-sa/4.0)
+>
+> 에서 확인하세요.
+
+이 문서는 장고걸스 서울 운영진이 만든 코딩 초심자를 위한 Django로 간단한 비디오 서비스를 만드는 튜토리얼입니다.
+
+## 번역 {#번역}
+
+이 튜토리얼은 열정적인 장고걸스서울 코치와 자원봉사자들의 수고로 작성되었습니다.
+
+> 작성: 이소은, 강명서
+
+## 도움주신 분들 {#도움주신-분들}
+
+장고걸스서울의 운영진과 코치들이 함께 튜토리얼을 준비했습니다
+
+강명서, 이소은, 송다운, 이미희, 한홍근, 이준범, 양미림, 하현주
+
+## 튜토리얼에서 무엇을 배우게 되나요? {#튜토리얼에서-무엇을-배우게-되나요}
+
+## 소개 {#소개}
+
+## 설명 {#설명}
+
+### 들어가며 {#들어가며}
+
+### 준비사항 {#준비사항}
+
+### 튜토리얼의 목적 {#튜토리얼의-목적}
+
+### 따라하기 {#따라하기}
+
+그럼 다음 링크 에서 차근차근 하나씩 따라가 봅시다.
+
