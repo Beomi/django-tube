@@ -7,10 +7,10 @@
 ```
 .
 ├── djangotube
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
 └── manage.py
 ```
 
@@ -38,8 +38,6 @@ $ python manage.py runserver
 
 위와 같은 페이지가 뜬다면 성공하셨습니다. 축하드립니다 :\)
 
-
-
 # 본격적인 코딩 시작하기
 
 django 서버를 띄우는 데에 성공했으니 이제 기능을 구현해봅시다.
@@ -63,17 +61,17 @@ djangotube 폴더 안에서 다음과 같이 입력해주게 되면 프로젝트
 ```
 .
 ├── djangotube
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
 ├── manage.py
 └── video
     ├── __init__.py
     ├── admin.py
     ├── apps.py
     ├── migrations
-    │   └── __init__.py
+    │   └── __init__.py
     ├── models.py
     ├── tests.py
     └── views.py
@@ -83,13 +81,19 @@ djangotube 폴더 안에서 다음과 같이 입력해주게 되면 프로젝트
 
 
 
+# MTV\(MVC\)
 
 
 
+# Model
+
+django
+
+# View
 
 
 
-
+# Template
 
 
 
