@@ -121,9 +121,77 @@ $ python manage.py migrate
 
 이제 모델을 조작하기 위한 View와 Template을 만들어보겠습니다.
 
+# Urls
+
+
+
 # View
 
+django에서의 View는 각종 로직을 처리하는 곳입니다.
+
+이렇게 말만 하면 어떤 것인지 감이 안오시죠?! 바로 만들어보겠습니다.
+
+가장 먼저 저희가 하고 싶은 건 현재 저희가 만든 Video의 목록을 보고 싶은 것입니다.
+
+그럼 `video/views.py` 에 작성해보겠습니다.
+
+```py
+from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse
+from .models import Video
+
+
+def video_list(request):
+    video_list = Video.objects.all()
+    return render(request, 'video/video_list.html', {'video_list': video_list})
+
+```
+
+위에 코드 설명해야
+
+다만 문제는 video/video\_list.html 이라는 파일이 없다는 것이죠.
+
+게다가 이 View를 어느 url에서 보여줄 지를 아직 설정하지 않았습니다.
+
+자 그럼 template 파일을 만들고 연결해봅시다!
+
 # Template
+
+Django는 django template 이라는 템플릿 엔진이라는 것을 통해서 html에 **특별한 구문** 을 작성할 수 있습니다.
+
+역시나 한 번 `video/templates/video/video_list.html` 을 작성해봅시다!
+
+```html
+{% load staticfiles %}
+
+<html>
+<head>
+    <title>Video List</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="content container">
+    <header class="page-header" style="overflow: auto;">
+        <h1><a href="{% url 'video:list' %}" style="float: left;">Video List</a></h1>
+    </header>
+    <div class="row">
+        <div class="col-md-12">
+            {% for video in video_list %}
+                <h4>{{ video.title }}</h4>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
+```
+
+위의 코드 설명해야함!
+
+이렇게 간단하게 현재 만들어둔 Video를 볼 수 있는 화면을 만들어봤습니다.
+
+
 
 
 
