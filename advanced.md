@@ -89,6 +89,14 @@ MVC 패턴은 다른 웹 프레임워크에서 주로 사용되는 디자인 패
 >
 > django 에서의 View는 MVC에서의 Controller 에 가깝고, Template이 MVC의 View 부분과 비슷합니다.
 
+각각의 역할을 말씀드려보겠습니다.
+
+**Model** 은 데이터를 표현하는 데 사용되며, 하나의 Model 클래스는 데이터베이스에서 하나의 테이블로 표현됩니다.
+
+**View** 는 HTTP 요청를 받아 그 결과인 HTTP 응답를 반환하는 부분으로서, Model로부터 데이터를 읽거나 저장할 수 있으며, Template을 호출하여 데이터를 화면 상에 표현하도록 할 수 있다.
+
+**Template** 은 HTML을 생성하는 것을 목적으로 하는 부분입니다. 주로 템플릿 엔진을 이용해서 템플릿 문법을 사용합니다.
+
 # Model
 
 저희는 Video 라는 모델을 만들고 저장해서 리스트 형식으로 보여줄 것입니다.
@@ -152,7 +160,7 @@ def video_list(request):
 
 def video_detail(request, video_id):
     video = Video.objects.get(id=int(video_id))
-    
+
     if request.method == 'POST':
         title = request.POST['title']
         video_key = request.POST['video_key']
@@ -181,7 +189,6 @@ def video_delete(request, video_id):
     video.delete()
 
     return redirect(reverse('video:list'))
-
 ```
 
 위에 코드 설명해야함
@@ -348,8 +355,6 @@ Django는 django template 이라는 템플릿 엔진이라는 것을 통해서 h
 </script>
 </html>
 ```
-
-
 
 이렇게 간단하게 현재 만들어둔 Video를 볼 수 있는 화면을 만들어봤습니다.
 
