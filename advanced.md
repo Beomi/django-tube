@@ -81,6 +81,14 @@ djangotube 폴더 안에서 다음과 같이 입력해주게 되면 프로젝트
 
 # MTV\(MVC\)
 
+MVC 패턴은 다른 웹 프레임워크에서 주로 사용되는 디자인 패턴입니다.
+
+이 MVC는 Model, View, Controller 의 약자인데요, 이것을 django는 Model, **Template, View** 로 이름만 조금 다르게 사용합니다.
+
+> 주의하실 점은 django에서의 View는 다른 MVC 에서의 View와 다르다는 점입니다.
+>
+> django 에서의 View는 MVC에서의 Controller 에 가깝고, Template이 MVC의 View 부분과 비슷합니다.
+
 # Model
 
 저희는 Video 라는 모델을 만들고 저장해서 리스트 형식으로 보여줄 것입니다.
@@ -121,10 +129,6 @@ $ python manage.py migrate
 
 이제 모델을 조작하기 위한 View와 Template을 만들어보겠습니다.
 
-# Urls
-
-
-
 # View
 
 django에서의 View는 각종 로직을 처리하는 곳입니다.
@@ -145,15 +149,82 @@ def video_list(request):
     video_list = Video.objects.all()
     return render(request, 'video/video_list.html', {'video_list': video_list})
 
+
+def video_detail(request, video_id):
+    video = Video.objects.get(id=int(video_id))
+    
+    if request.method == 'POST':
+        title = request.POST['title']
+        video_key = request.POST['video_key']
+
+        video.title = title
+        video.video_key = video_key
+        video.save()
+
+        return redirect(reverse('video:list'))
+
+    return render(request, 'video/video_detail.html', {'video': video})
+
+
+def video_new(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        video_key = request.POST['video_key']
+        Video.objects.create(title=title, video_key=video_key)
+        return redirect(reverse('video:list'))
+
+    return render(request, 'video/video_new.html')
+
+
+def video_delete(request, video_id):
+    video = Video.objects.get(id=video_id)
+    video.delete()
+
+    return redirect(reverse('video:list'))
+
 ```
 
-위에 코드 설명해야
+위에 코드 설명해야함
 
 다만 문제는 video/video\_list.html 이라는 파일이 없다는 것이죠.
 
 게다가 이 View를 어느 url에서 보여줄 지를 아직 설정하지 않았습니다.
 
 자 그럼 template 파일을 만들고 연결해봅시다!
+
+# Urls
+
+template 파일을 만들기 전에 View 와 template 파일을 연결해주기 위한 urls.py 를 작성해볼 것입니다.
+
+urls.py 에는 어떤 URL에 어떤 View를 연결시켜줄 것인지를 작성합니다.
+
+먼저 `djangotube/urls.py` 에는 다음과 같이 작성합니다.
+
+```py
+from django.conf.urls import url, include
+from django.contrib import admin
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^video/', include('video.urls', namespace='video')),
+]
+```
+
+그리고 `video/urls.py` 에는 다음과 같이 작성합니다.
+
+```py
+from django.conf.urls import url, include
+from . import views
+
+urlpatterns = [
+    url(r'^$', views.video_list, name='list'),
+    url(r'^(?P<video_id>\d+)/$', views.video_detail, name='detail'),
+    url(r'^new$', views.video_new, name='new'),
+    url(r'^(?P<video_id>\d+)/delete$', views.video_delete, name='delete'),
+]
+```
+
+이렇게 작성해주시면 됩니다.
 
 # Template
 
@@ -187,11 +258,98 @@ Django는 django template 이라는 템플릿 엔진이라는 것을 통해서 h
 </html>
 ```
 
-위의 코드 설명해야함!
+그리고 `video/video_new.html` 을 작성해보겠습니다.
+
+```html
+{% load staticfiles %}
+
+<html>
+<head>
+    <title>New Video</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="content container">
+    <header class="page-header">
+        <h1>New Video</h1>
+    </header>
+    <div class="row">
+        <div class="col-md-16">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="form-control" id="title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <label for="video_key">Video Key</label>
+                    <input type="text" name="video_key" class="form-control" id="video_key" placeholder="Video Key">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+```
+
+그 다음은 `video/video_detail.html` 입니다!
+
+```html
+{% load staticfiles %}
+
+<html>
+<head>
+    <title>Video Detail</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="content container">
+    <header class="page-header">
+        <a href="{% url 'video:list' %}">Back to Video List</a>
+        <h1>Video Detail</h1>
+    </header>
+    <div class="row">
+        <div class="col-md-16">
+            <div id="player"></div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="form-control" id="title" placeholder="Title" value="{{ video.title }}">
+                </div>
+                <div class="form-group">
+                    <label for="video_key">Video Key</label>
+                    <input type="text" name="video_key" class="form-control" id="video_key" placeholder="Video Key" value="{{ video.video_key }}">
+                </div>
+                <button type="submit" class="btn btn-default">Change</button>
+                <a href="{% url 'video:delete' video.id %}" class="btn btn-danger">Delete</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            videoId: '{{ video.video_key }}'
+        });
+    }
+</script>
+</html>
+```
+
+
 
 이렇게 간단하게 현재 만들어둔 Video를 볼 수 있는 화면을 만들어봤습니다.
-
-
-
-
 
