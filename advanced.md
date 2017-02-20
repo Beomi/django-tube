@@ -183,9 +183,9 @@ template 파일을 만들기 전에 View 와 template 파일을 연결해주기 
 
 urls.py 에는 어떤 URL에 어떤 View를 연결시켜줄 것인지를 작성합니다.
 
-먼저 `djangotube/urls.py` 에는 다음과 같이 작성합니다.
+먼저 djangotube/urls.py 에는 다음과 같이 작성합니다.
 
-```py
+```
 from django.conf.urls import url, include
 from django.contrib import admin
 
@@ -195,21 +195,40 @@ urlpatterns = [
 ]
 ```
 
+보시다시피 url을 이렇게 정의해줍니다.
+
+namesapce 라는 개념은 직역하면 이름공간 이라는 뜻인데 관련있는 url 이름들을 한 곳에 묶고 싶을 때 사용합니다.
+
+아래에서 마저 작성하고 사용법을 알아보도록 하겠습니다.
+
 그리고 `video/urls.py` 에는 다음과 같이 작성합니다.
 
-```py
+```
 from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.video_list, name='list'),
-    url(r'^(?P<video_id>\d+)/$', views.video_detail, name='detail'),
-    url(r'^new$', views.video_new, name='new'),
-    url(r'^(?P<video_id>\d+)/delete$', views.video_delete, name='delete'),
+    url(r'^$', views.video_list, name='list')
 ]
 ```
 
-이렇게 작성해주시면 됩니다.
+이렇게 작성해주시면 Template 쪽에서 video_list 라는 view로 링크를 걸어주고 싶다면 
+
+```
+<a href=“{% url ‘video:list’ %}”>링크</a>
+```
+
+와 같이 작성이 가능합니다.
+
+이해가 되셨나요? 그렇다면 정말 대단하신 것입니다!
+
+부가적인 설명을 드리자면 url 경로를 하나하나 다 외우기는 정말 어려운 일이니 이걸 간소화 하기 위해(쉽게 url을 찾기 위해) url 에 이름을 붙여주는 것입니다.
+
+위에서 언급했던 namespace는 그 이름들을 관련 있는 것들끼리 묶어놓기 위해 쓰이는 것이구요.
+
+어떠세요? 조금 이해가 가셨나요?
+
+이해가 잘 안 되셨다면 따로 질문 해주세요! 성심성의껏 답변 해드리겠습니다.
 
 # Template
 
@@ -273,7 +292,7 @@ video\_list는 Video의 배열이라고 생각하시면 편하실 듯 합니다.
 
 그렇기 때문에 video\_list 를 for .. in 문으로 돌리게 되면 video 에는 Video 객체 하나하나가 들어가게 됩니다.
 
-때문에 이 표현식 -&gt; {{  }} 을 사용해서 video.title 로 Video의 제목을 출력해주게 됩니다.
+때문에 이 표현식 -&gt; \{\{  }} 을 사용해서 video.title 로 Video의 제목을 출력해주게 됩니다.
 
 이렇게 작성해보고 한 번 실행시켜보도록 하겠습니다.
 
@@ -283,3 +302,81 @@ $ python manage.py runserver
 
 를 입력한 후에 http://localhost:8000/video 로 들어가보겠습니다.
 
+![](/assets/스크린샷 2017-02-20 오후 7.19.23.png)
+
+아무것도 없습니다. 조금 허무할까요 ㅠㅠ...
+
+그렇다면 이제 Video를 추가하는 페이지를 만들어 보겠습니다.
+
+이제는 Model 을 건드릴 일은 없습니다.
+
+Model을 추가할 수 있게 해주는 View 와 Template 을 만들어 봅시다!
+
+다시 `video/views.py` 부터 작성해보겠습니다.
+
+```python
+# 아래에 이 코드 추가하기 
+
+def video_new(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        video_key = request.POST['video_key']
+        Video.objects.create(title=title, video_key=video_key)
+        return redirect(reverse('video:list'))
+
+    return render(request, 'video/video_new.html')
+
+```
+이 코드는 HTTP 요청이 get일 경우와 post 일 경우 의 응답이 서로 다릅니다.
+
+다음은 `video/urls.py` 의 코드입니다.
+
+```python
+from django.conf.urls import url, include
+from . import views
+
+urlpatterns = [
+    url(r'^$', views.video_list, name='list'),
+    url(r'^new$', views.video_new, name='new'),
+]
+
+```
+
+요렇게 /video/new 경로로 들어가면 사용자에게 입력받을 수 있게끔 연결시켜줍니다.
+
+다음은 `video/templates/video/video_new.html` 의 코드입니다.
+
+```html
+{% load staticfiles %}
+
+<html>
+<head>
+    <title>New Video</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="content container">
+    <header class="page-header">
+        <h1>New Video</h1>
+    </header>
+    <div class="row">
+        <div class="col-md-16">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="form-control" id="title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <label for="video_key">Video Key</label>
+                    <input type="text" name="video_key" class="form-control" id="video_key" placeholder="Video Key">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+```
