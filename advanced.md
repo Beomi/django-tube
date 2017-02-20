@@ -343,7 +343,8 @@ POST 방식의 경우 첫 줄에 나오는 if 구문으로 분기를 합니다.
 
 이 부분은 template 부분을 보면서 좀 더 자세히 설명드리겠습니다.
 
-그렇게 POST에서 꺼내온 값으로 `Video.objects.create` 구구문을 잉ㅅㅇ해서 만듭니다.
+그렇게 POST에서 꺼내온 값으로 `Video.objects.create` 구문을 이용해서 새로운 Video 객체를 만듭니다.
+
 다음은 `video/urls.py` 의 코드입니다.
 
 ```python
