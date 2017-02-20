@@ -1,5 +1,13 @@
 # djangotube 시작하기
 
+다음 명령어를 통해 django 프로젝트를 만듭니다.
+
+```
+$ django-admin startproject djangotube
+```
+
+입력하게 되면 `djangotube` 라는 폴더가 하나 생겼습니다.
+
 자 저희는 방금 `djangotube` 라는 이름을 가진 django 프로젝트를 생성했습니다.
 
 처음에 django 프로젝트를 만들게 되면 다음과 같은 구조를 가집니다.
@@ -156,7 +164,6 @@ from .models import Video
 def video_list(request):
     video_list = Video.objects.all()
     return render(request, 'video/video_list.html', {'video_list': video_list})
-
 ```
 
 7번째 줄은 저장된 Video 객체들을 전부 가져오겠다는 뜻입니다.
@@ -212,7 +219,7 @@ urlpatterns = [
 ]
 ```
 
-이렇게 작성해주시면 Template 쪽에서 video_list 라는 view로 링크를 걸어주고 싶다면 
+이렇게 작성해주시면 Template 쪽에서 video\_list 라는 view로 링크를 걸어주고 싶다면
 
 ```
 <a href=“{% url ‘video:list’ %}”>링크</a>
@@ -222,7 +229,7 @@ urlpatterns = [
 
 이해가 되셨나요? 그렇다면 정말 대단하신 것입니다!
 
-부가적인 설명을 드리자면 url 경로를 하나하나 다 외우기는 정말 어려운 일이니 이걸 간소화 하기 위해(쉽게 url을 찾기 위해) url 에 이름을 붙여주는 것입니다.
+부가적인 설명을 드리자면 url 경로를 하나하나 다 외우기는 정말 어려운 일이니 이걸 간소화 하기 위해\(쉽게 url을 찾기 위해\) url 에 이름을 붙여주는 것입니다.
 
 위에서 언급했던 namespace는 그 이름들을 관련 있는 것들끼리 묶어놓기 위해 쓰이는 것이구요.
 
@@ -292,7 +299,7 @@ video\_list는 Video의 배열이라고 생각하시면 편하실 듯 합니다.
 
 그렇기 때문에 video\_list 를 for .. in 문으로 돌리게 되면 video 에는 Video 객체 하나하나가 들어가게 됩니다.
 
-때문에 이 표현식 -&gt; \{\{  }} 을 사용해서 video.title 로 Video의 제목을 출력해주게 됩니다.
+때문에 이 표현식 -&gt; {{  }} 을 사용해서 video.title 로 Video의 제목을 출력해주게 됩니다.
 
 이렇게 작성해보고 한 번 실행시켜보도록 하겠습니다.
 
@@ -300,7 +307,7 @@ video\_list는 Video의 배열이라고 생각하시면 편하실 듯 합니다.
 $ python manage.py runserver
 ```
 
-를 입력한 후에 http://localhost:8000/video 로 들어가보겠습니다.
+를 입력한 후에 [http://localhost:8000/video](http://localhost:8000/video) 로 들어가보겠습니다.
 
 ![](/assets/스크린샷 2017-02-20 오후 7.19.23.png)
 
@@ -325,8 +332,8 @@ def video_new(request):
         return redirect(reverse('video:list'))
 
     return render(request, 'video/video_new.html')
-
 ```
+
 이 코드는 HTTP 요청이 GET 방식일 경우와 POST 방식일 경우 의 응답이 서로 다릅니다.
 
 먼저 GET 요청의 경우에는 `video/video_new.html` 을 렌더링 해줍니다.
@@ -339,7 +346,7 @@ POST 방식의 경우 첫 줄에 나오는 if 구문으로 분기를 합니다.
 
 그 다음 `request.POST['title']` 과 `request.POST['video_key']` 라는 문법이 나옵니다.
 
-이 부분은 POST 파라미터로 넘어온 title 이라는 키를 가진 값과 video_key 키를 가진 값을 꺼내오는 작업입니다.
+이 부분은 POST 파라미터로 넘어온 title 이라는 키를 가진 값과 video\_key 키를 가진 값을 꺼내오는 작업입니다.
 
 이 부분은 template 부분을 보면서 좀 더 자세히 설명드리겠습니다.
 
@@ -356,7 +363,6 @@ urlpatterns = [
     # 아래 코드 추가하기
     url(r'^new$', views.video_new, name='new'),
 ]
-
 ```
 
 요렇게 /video/new 경로로 들어가면 사용자에게 입력받을 수 있게끔 연결시켜줍니다.
@@ -405,5 +411,4 @@ urlpatterns = [
 django에서 처리해주는 것들이 여러 가지가 있는데 그것 중에 하나 입니다.
 
 POST, GET 처리 방식 설명
-
 
