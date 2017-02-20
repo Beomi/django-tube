@@ -6,7 +6,7 @@
 
 장고는 파이썬으로 만들어졌는데요! 장고를 하기 위해서는 파이썬이 있어야 합니다. 파이썬 3.5 를 사용할 거에요.
 
-먼저 Mac/Linux 환경에서는 terminal, Windows 환경에서는 prompt을 열고 프로젝트를 만들 폴더로 이동해봅시다.
+먼저 Mac/Linux 환경에서는 terminal, Windows 환경에서는 prompt을 열고 프로젝트를 만들 폴더로 이동해봅시다. Command Line 여는 방법은 [여기](https://tutorial.djangogirls.org/ko/intro_to_command_line/#커맨드-라인-열기)를 참고 하면 됩니다!
 
 ### 윈도우 {#윈도우}
 
