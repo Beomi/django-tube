@@ -87,25 +87,12 @@ djangotube 폴더 안에서 다음과 같이 입력해주게 되면 프로젝트
 
 이제 진짜진짜 본격적으로 코딩해봅시다.
 
-# MTV\(MVC\)
-
-MVC 패턴은 다른 웹 프레임워크에서 주로 사용되는 디자인 패턴입니다.
-
-이 MVC는 Model, View, Controller 의 약자인데요, 이것을 django는 Model, **Template, View** 로 이름만 조금 다르게 사용합니다.
-
-> 주의하실 점은 django에서의 View는 다른 MVC 에서의 View와 다르다는 점입니다.
->
-> django 에서의 View는 MVC에서의 Controller 에 가깝고, Template이 MVC의 View 부분과 비슷합니다.
-
-각각의 역할을 말씀드려보겠습니다.
-
-* **Model** 은 데이터를 표현하는 데 사용되며, 하나의 Model 클래스는 데이터베이스에서 하나의 테이블로 표현됩니다.
-
-* **View** 는 HTTP 요청를 받아 그 결과인 HTTP 응답를 반환하는 부분으로서, Model로부터 데이터를 읽거나 저장할 수 있으며, Template을 호출하여 데이터를 화면 상에 표현하도록 할 수 있다.
-
-* **Template** 은 HTML을 생성하는 것을 목적으로 하는 부분입니다. 주로 템플릿 엔진을 이용해서 템플릿 문법을 사용합니다.
 
 # Model
+
+django 에서 모델은 데이터를 저장하는 역할을 합니다.
+
+모델 클래스 하나당 데이터베이스 테이블이 하나씩 생기게 됩니다.
 
 저희는 Video 라는 모델을 만들고 저장해서 리스트 형식으로 보여줄 것입니다.
 
@@ -408,7 +395,17 @@ urlpatterns = [
 
 이 템플릿 태그는 특별한 템플릿 태그입니다.
 
-django에서 처리해주는 것들이 여러 가지가 있는데 그것 중에 하나 입니다.
+웹사이트 공격기법으로 Cross-site request forgery 라는 게 있는데 그것을 막기 위한 장고의 보안 규칙입니다.
+
+`form` 태그 안에는 꼭 써주는 것이 관례입니다.
+
+이제 form 태그 쪽을 보게되면 method를 POST로 지정하고, input을 2개 받는 걸 보실 수 있습니다.
+
+input 태그는 name 값을 잘 봐야합니다.
+
+django의 view 쪽에서 input 안에 있는 값을 받게 되는데 그 값을 가져올 때 저 `name` 값을 통해서 가져오기 때문입니다.
+
+위에 `video/views.py` 에서 저희가 `request.POST['title']` 과 `request.POST['video_key']` 로 작성했으므로 
 
 POST, GET 처리 방식 설명
 
