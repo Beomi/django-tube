@@ -1,7 +1,7 @@
 # Summary
 
-* [Introduction](README.md)
-* [Getting Started](chapter1.md)
+* [들어가며](README.md)
+* [설치하기](chapter1.md)
 * [Advanced](advanced.md)
 * [Azure](azure.md)
 

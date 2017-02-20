@@ -82,6 +82,12 @@ $ source myvenv/bin/activate
 
 # Django 설치
 
+## Django란 무엇인가요?
+
+Django는 파이썬으로 만들어진 무료 오픈소스 웹 어플리케이션 프레임워크\(web application framework\) 입니다. 쉽고 빠르게 웹사이트를 개발할 수 있도록 돕는 구성요소로 이루어진 웹 프레임워크이랍니다. Django에 대해서 좀 더 자세히 알아보려면 [여기](https://tutorial.djangogirls.org/ko/django/)를 클릭해 주세요!
+
+## Django 설치
+
 가상환경을 설정하고 활성화 하고 나면 터미널 또는 prompt에서 다음과 같이 보일거에요! 혹시 보이지 않는다면 언제든지 도움을 요청해 주세요!
 
 ```
