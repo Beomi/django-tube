@@ -335,6 +335,15 @@ def video_new(request):
 
 다만 POST 방식 경우에는 조금의 처리가 더 들어갑니다.
 
+POST 방식의 경우 첫 줄에 나오는 if 구문으로 분기를 합니다.
+
+그 다음 `request.POST['title']` 과 `request.POST['video_key']` 라는 문법이 나옵니다.
+
+이 부분은 POST 파라미터로 넘어온 title 이라는 키를 가진 값과 video_key 키를 가진 값을 꺼내오는 작업입니다.
+
+이 부분은 template 부분을 보면서 좀 더 자세히 설명드리겠습니다.
+
+그렇게 POST에서 꺼내온 값으로 `Video.objects.create` 구구문을 잉ㅅㅇ해서 만듭니다.
 다음은 `video/urls.py` 의 코드입니다.
 
 ```python
