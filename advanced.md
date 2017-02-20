@@ -327,7 +327,13 @@ def video_new(request):
     return render(request, 'video/video_new.html')
 
 ```
-이 코드는 HTTP 요청이 get일 경우와 post 일 경우 의 응답이 서로 다릅니다.
+이 코드는 HTTP 요청이 GET 방식일 경우와 POST 방식일 경우 의 응답이 서로 다릅니다.
+
+먼저 GET 요청의 경우에는 `video/video_new.html` 을 렌더링 해줍니다.
+
+그게 끝- 입니다.
+
+다만 POST 방식 경우에는 조금의 처리가 더 들어갑니다.
 
 다음은 `video/urls.py` 의 코드입니다.
 
@@ -337,6 +343,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.video_list, name='list'),
+    # 아래 코드 추가하기
     url(r'^new$', views.video_new, name='new'),
 ]
 
@@ -380,3 +387,8 @@ urlpatterns = [
 </body>
 </html>
 ```
+
+csrf token 설명
+POST, GET 처리 방식 설명
+
+
