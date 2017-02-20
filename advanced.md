@@ -398,7 +398,12 @@ urlpatterns = [
 </html>
 ```
 
-csrf token 설명
+일단 이 template 파일에서 가장 낯선 부분은 아마도 `{% csrf_token %}` 부분일 듯 합니다.
+
+이 템플릿 태그는 특별한 템플릿 태그입니다.
+
+django에서 처리해주는 것들이 여러 가지가 있는데 그것 중에 하나 입니다.
+
 POST, GET 처리 방식 설명
 
 
