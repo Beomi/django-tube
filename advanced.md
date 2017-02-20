@@ -91,11 +91,11 @@ MVC 패턴은 다른 웹 프레임워크에서 주로 사용되는 디자인 패
 
 각각의 역할을 말씀드려보겠습니다.
 
-**Model** 은 데이터를 표현하는 데 사용되며, 하나의 Model 클래스는 데이터베이스에서 하나의 테이블로 표현됩니다.
+* **Model** 은 데이터를 표현하는 데 사용되며, 하나의 Model 클래스는 데이터베이스에서 하나의 테이블로 표현됩니다.
 
-**View** 는 HTTP 요청를 받아 그 결과인 HTTP 응답를 반환하는 부분으로서, Model로부터 데이터를 읽거나 저장할 수 있으며, Template을 호출하여 데이터를 화면 상에 표현하도록 할 수 있다.
+* **View** 는 HTTP 요청를 받아 그 결과인 HTTP 응답를 반환하는 부분으로서, Model로부터 데이터를 읽거나 저장할 수 있으며, Template을 호출하여 데이터를 화면 상에 표현하도록 할 수 있다.
 
-**Template** 은 HTML을 생성하는 것을 목적으로 하는 부분입니다. 주로 템플릿 엔진을 이용해서 템플릿 문법을 사용합니다.
+* **Template** 은 HTML을 생성하는 것을 목적으로 하는 부분입니다. 주로 템플릿 엔진을 이용해서 템플릿 문법을 사용합니다.
 
 # Model
 
@@ -157,45 +157,23 @@ def video_list(request):
     video_list = Video.objects.all()
     return render(request, 'video/video_list.html', {'video_list': video_list})
 
-
-def video_detail(request, video_id):
-    video = Video.objects.get(id=int(video_id))
-
-    if request.method == 'POST':
-        title = request.POST['title']
-        video_key = request.POST['video_key']
-
-        video.title = title
-        video.video_key = video_key
-        video.save()
-
-        return redirect(reverse('video:list'))
-
-    return render(request, 'video/video_detail.html', {'video': video})
-
-
-def video_new(request):
-    if request.method == 'POST':
-        title = request.POST['title']
-        video_key = request.POST['video_key']
-        Video.objects.create(title=title, video_key=video_key)
-        return redirect(reverse('video:list'))
-
-    return render(request, 'video/video_new.html')
-
-
-def video_delete(request, video_id):
-    video = Video.objects.get(id=video_id)
-    video.delete()
-
-    return redirect(reverse('video:list'))
 ```
 
-위에 코드 설명해야함
+7번째 줄은 저장된 Video 객체들을 전부 가져오겠다는 뜻입니다.
 
-다만 문제는 video/video\_list.html 이라는 파일이 없다는 것이죠.
+저렇게 가져온 Video 들을 Python의 Dictionary\(사전\) 형태로 Template 쪽으로 넘겨주게 됩니다.
+
+그렇게 되면 Template 쪽에서 ‘video\_list’ 라는 이름으로 video\_list 라는 리스트를 사용할 수 있게 되는 것입니다.
+
+Template 쪽에서 좀 더 자세히 말씀 드리겠습니다.
+
+하지만 정작 문제는 `video/video_list.html` 이라는 파일이 없다는 것이죠.
 
 게다가 이 View를 어느 url에서 보여줄 지를 아직 설정하지 않았습니다.
+
+해야할 게 많죠...
+
+하지만 괜찮습니다. 곧 만들테니까요!
 
 자 그럼 template 파일을 만들고 연결해봅시다!
 
@@ -265,96 +243,43 @@ Django는 django template 이라는 템플릿 엔진이라는 것을 통해서 h
 </html>
 ```
 
-그리고 `video/video_new.html` 을 작성해보겠습니다.
+맨 첫 줄부터 낯설 겁니다.
 
-```html
-{% load staticfiles %}
+일단 저희는 CSS Framework인 **Bootstrap** 을 사용합니다.
 
-<html>
-<head>
-    <title>New Video</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-</head>
-<body>
-<div class="content container">
-    <header class="page-header">
-        <h1>New Video</h1>
-    </header>
-    <div class="row">
-        <div class="col-md-16">
-            <form method="POST">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" class="form-control" id="title" placeholder="Title">
-                </div>
-                <div class="form-group">
-                    <label for="video_key">Video Key</label>
-                    <input type="text" name="video_key" class="form-control" id="video_key" placeholder="Video Key">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-        </div>
-    </div>
-</div>
-</body>
-</html>
+지금 튜토리얼에서는 크게 중요하지 않으니 그냥 복붙 하셔도 무방합니다.
+
+하지만 중간에 나오는 `{% for video in video_list %}` 이 부분은 직접 쳐보시길 추천 드립니다.
+
+그리고 위에서 잠깐 설명드렸던 `{% url ‘~~’ %}` 가 나옵니다.
+
+이 부분은 **템플릿 태그** 라고 합니다.
+
+템플릿 태그는 django의 정말 강력한 기능 중에 하나 입니다.
+
+잘 사용하시면 정말 좋은 기능이므로 중요하게 보시는 걸 추천드립니다.
+
+그리고 중간에 나오는 `{% for video in video_list %}` 이 부분은 템플릿 태그로 python의 `for .. in` 구문을 사용한 부분입니다.
+
+`{% for ~~ %}` 로 시작했다면 반드시 `{% endfor %}` 로 닫아주어야 합니다.
+
+이제 그 블록 안에 원하는 로직을 작성하면 됩니다.
+
+저희는 일단 video의 제목이 리스트로 쭉 보여지게 하는 것이 목표입니다.
+
+위의 view 에서 설명했던 video\_list라는 이름으로 video\_list를 넘겨줍니다.
+
+video\_list는 Video의 배열이라고 생각하시면 편하실 듯 합니다.
+
+그렇기 때문에 video\_list 를 for .. in 문으로 돌리게 되면 video 에는 Video 객체 하나하나가 들어가게 됩니다.
+
+때문에 이 표현식 -&gt; {{  }} 을 사용해서 video.title 로 Video의 제목을 출력해주게 됩니다.
+
+이렇게 작성해보고 한 번 실행시켜보도록 하겠습니다.
+
+```
+$ python manage.py runserver
 ```
 
-그 다음은 `video/video_detail.html` 입니다!
-
-```html
-{% load staticfiles %}
-
-<html>
-<head>
-    <title>Video Detail</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-</head>
-<body>
-<div class="content container">
-    <header class="page-header">
-        <a href="{% url 'video:list' %}">Back to Video List</a>
-        <h1>Video Detail</h1>
-    </header>
-    <div class="row">
-        <div class="col-md-16">
-            <div id="player"></div>
-            <form method="POST">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" class="form-control" id="title" placeholder="Title" value="{{ video.title }}">
-                </div>
-                <div class="form-group">
-                    <label for="video_key">Video Key</label>
-                    <input type="text" name="video_key" class="form-control" id="video_key" placeholder="Video Key" value="{{ video.video_key }}">
-                </div>
-                <button type="submit" class="btn btn-default">Change</button>
-                <a href="{% url 'video:delete' video.id %}" class="btn btn-danger">Delete</a>
-            </form>
-        </div>
-    </div>
-</div>
-</body>
-<script>
-    var tag = document.createElement('script');
-
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    var player;
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-            videoId: '{{ video.video_key }}'
-        });
-    }
-</script>
-</html>
-```
-
-이렇게 간단하게 현재 만들어둔 Video를 볼 수 있는 화면을 만들어봤습니다.
+를 입력한 후에 http://localhost:8000/video 로 들어가보겠습니다.
 
