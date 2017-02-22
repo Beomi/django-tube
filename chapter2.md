@@ -243,6 +243,7 @@ Django는 django template 이라는 템플릿 엔진이라는 것을 통해서 h
 <div class="content container">
     <header class="page-header" style="overflow: auto;">
         <h1><a href="{% url 'video:list' %}" style="float: left;">Video List</a></h1>
+        <a class="btn btn-default" href="/video/new" style="float: right;">New Video</a>
     </header>
     <div class="row">
         <div class="col-md-12">
@@ -296,7 +297,8 @@ $ python manage.py runserver
 ```
 
 를 입력한 후에 [http://localhost:8000/video](http://localhost:8000/video) 로 들어가보겠습니다.
-![](/assets/스크린샷 2017-02-22 오후 7.08.57.png)
+
+![](/assets/스크린샷 2017-02-22 오후 8.22.03.png)
 
 아무것도 없습니다. 조금 허무할까요 ㅠㅠ...
 
