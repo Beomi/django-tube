@@ -476,7 +476,6 @@ urlpatterns = [
 <body>
 <div class="content container">
     <header class="page-header">
-        <a href="{% url 'video:list' %}">Back to Video List</a>
         <h1>Video Detail</h1>
     </header>
     <div class="row">
