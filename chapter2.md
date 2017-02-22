@@ -102,7 +102,7 @@ django 에서 모델은 데이터를 저장하는 역할을 합니다.
 
 `video/models.py` 에 다음과 같이 작성해줍니다.
 
-```py
+```python
 from django.db import models
 
 
@@ -142,7 +142,7 @@ django에서의 View는 각종 로직을 처리하는 곳입니다.
 
 그럼 `video/views.py` 에 작성해보겠습니다.
 
-```py
+```python
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from .models import Video
@@ -179,7 +179,7 @@ urls.py 에는 어떤 URL에 어떤 View를 연결시켜줄 것인지를 작성�
 
 먼저 djangotube/urls.py 에는 다음과 같이 작성합니다.
 
-```
+```python
 from django.conf.urls import url, include
 from django.contrib import admin
 
@@ -197,7 +197,7 @@ namesapce 라는 개념은 직역하면 이름공간 이라는 뜻인데 관련�
 
 그리고 `video/urls.py` 에는 다음과 같이 작성합니다.
 
-```
+```python
 from django.conf.urls import url, include
 from . import views
 
@@ -208,7 +208,7 @@ urlpatterns = [
 
 이렇게 작성해주시면 Template 쪽에서 video\_list 라는 view로 링크를 걸어주고 싶다면
 
-```
+```html
 <a href=“{% url ‘video:list’ %}”>링크</a>
 ```
 
@@ -311,7 +311,7 @@ Model을 추가할 수 있게 해주는 View 와 Template 을 만들어 봅시�
 다시 `video/views.py` 부터 작성해보겠습니다.
 
 ```python
-# 아래에 이 코드 추가하기 
+# 기존 코드 아래에 이 코드를 추가해주세요
 
 def video_new(request):
     if request.method == 'POST':
