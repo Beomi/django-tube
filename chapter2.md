@@ -406,7 +406,121 @@ input 태그는 name 값을 잘 봐야합니다.
 
 django의 view 쪽에서 input 안에 있는 값을 받게 되는데 그 값을 가져올 때 저 `name` 값을 통해서 가져오기 때문입니다.
 
-위에 `video/views.py` 에서 저희가 `request.POST['title']` 과 `request.POST['video_key']` 로 작성했으므로 
+위에 `video/views.py` 에서 저희가 `request.POST['title']` 과 `request.POST['video_key']` 로 작성했으므로 input 태그의 name 속성도 이에 맞춰서 작성줍니다.
 
-POST, GET 처리 방식 설명
+다 작성되었다면 실행해보겠습니다.
 
+![](/assets/스크린샷 2017-02-22 오후 7.08.57.png)
+
+잘 보이네요!
+
+![](/assets/스크린샷 2017-02-22 오후 7.15.49.png)
+
+그렇게 된다면 이제 값을 넣고 Submit 버튼을 눌러봅시다.
+
+![](/assets/스크린샷 2017-02-22 오후 7.14.31.png)
+
+다음과 같이 생성되는 것을 볼 수 있습니다.
+
+하지만 뭔가 허전합니다.
+
+Video의 제목을 클릭하면 그 비디오의 상세 페이지로 가게끔 해서 상세 페이지에서는 우리가 저장한 영상이 나오게끔 해보겠습니다.
+
+먼저 `video/views.py` 부터 작성해보겠습니다.
+
+```python
+# 기존 코드 아래에 다음 코드를 작성해주세요
+
+def video_detail(request, video_id):
+    video = Video.objects.get(id=video_id)
+    return render(request, 'video/video_detail.html', {'video': video})
+
+```
+
+이 코드의 의미는 `video_id` 라는 이름을 가진 값을 인자로 받아서 그 값을 id로 가지는 Video를 불러와주는 부분입니다.
+
+이 `video_url` 은 `urls.py` 에서 넘어옵니다. 그럼 `video/urls.py` 도 작성해봅시다.
+
+```python
+from django.conf.urls import url, include
+from . import views
+
+urlpatterns = [
+    url(r'^$', views.video_list, name='list'),
+    url(r'^new$', views.video_new, name='new'),
+    url(r'^(?P<video_id>\d+)/$', views.video_detail, name='detail'),
+]
+```
+
+이렇게 작성해주시면 됩니다.
+
+맨 아래에서 두 번째 줄이 추가가 되었는데, 이 부분의 의미는 video_id 라는 숫자로 이루어진 값을 받아서 `video_detail` 라는 뷰에 인자로 넘겨주겠다는 의미입니다.
+
+따라서 우리는 `video_detail` 함수에서 `video_id` 라는 인자를 받아서 사용했던 것입니다.
+
+그럼 이제 `video/views.py` 에서 작성했었던 `video/templates/video_detail.html` 을 작성해보겠습니다.
+
+```html
+{% load staticfiles %}
+
+<html>
+<head>
+<title>Video Detail</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="content container">
+<header class="page-header">
+<a href="{% url 'video:list' %}">Back to Video List</a>
+<h1>Video Detail</h1>
+</header>
+<div class="row">
+<div class="col-md-16">
+<div id="player"></div>
+</div>
+</div>
+</div>
+</body>
+<script>
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+function onYouTubeIframeAPIReady() {
+player = new YT.Player('player', {
+videoId: '{{ video.video_key }}'
+});
+}
+</script>
+</html>
+```
+
+이렇게 작성해줍니다.
+
+일단 아래쪽의 script 태그쪽은 Youtube Player를 부르기 위해서 작성해놓은 API 부분입니다.
+
+그 부분은 django에 관한 내용은 아니니 넘어가고, 최대한 django 에 집중 해보겠습니다.
+
+script 태그쪽에서 `video.video_key` 라는 부분을 보실 수 있습니다.
+
+이 부분은 저희가 `New Video` 페이지에서 입력했던 것을 Youtube API를 통해서 넘겨주는 부분입니다.
+
+Youtube API는 그 Key를 가지고 저희가 원했던 동영상을 가져와주게 되는 것입니다.
+
+그 가져온 동영상을 id가 `player` 인 div 태그에 렌더링 해주게 됩니다.
+
+따라서 원하는 페이지를 볼 수 있습니다.
+
+다음과 같이 말입니다.
+
+![](/assets/스크린샷 2017-02-22 오후 7.43.43.png)
+
+와! 모든 과정을 마쳤습니다.
+
+비록 짧은 시간이었지만 django의 기초가 되는 내용을 훑어보았습니다.
+
+시간이 짧아서 `배포` 부분이나 좀 더 다양한 내용을 다루지는 못했으나 더 배우시고 싶으시면 [장고걸스 튜토리얼](https://djangogirlsseoul.gitbooks.io/tutorial/content/) 을 찾아주세요!
