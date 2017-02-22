@@ -300,7 +300,7 @@ $ python manage.py runserver
 
 를 입력한 후에 [http://localhost:8000/video](http://localhost:8000/video) 로 들어가보겠습니다.
 
-![](/assets/스크린샷 2017-02-22 오후 8.22.03.png)
+![](/assets/empty-video-list.png)
 
 아무것도 없습니다. 조금 허무할까요 ㅠㅠ...
 
@@ -413,16 +413,15 @@ django의 view 쪽에서 input 안에 있는 값을 받게 되는데 그 값을 
 
 다 작성되었다면 실행해보겠습니다.
 
-![](/assets/스크린샷 2017-02-22 오후 7.08.57.png)
+![](/assets/void-new-video.png)
 
 잘 보이네요!
 
-
-![](/assets/스크린샷 2017-02-22 오후 7.15.49.png)
+![](/assets/fill-input-new-video.png)
 
 그렇게 된다면 이제 값을 넣고 Submit 버튼을 눌러봅시다.
 
-![](/assets/스크린샷 2017-02-22 오후 7.14.31.png)
+![](/assets/complete-video-list.png)
 
 다음과 같이 생성되는 것을 볼 수 있습니다.
 
