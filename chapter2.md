@@ -467,36 +467,36 @@ urlpatterns = [
 
 <html>
 <head>
-<title>Video Detail</title>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <title>Video Detail</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 </head>
 <body>
 <div class="content container">
-<header class="page-header">
-<a href="{% url 'video:list' %}">Back to Video List</a>
-<h1>Video Detail</h1>
-</header>
-<div class="row">
-<div class="col-md-16">
-<div id="player"></div>
-</div>
-</div>
+    <header class="page-header">
+        <a href="{% url 'video:list' %}">Back to Video List</a>
+        <h1>Video Detail</h1>
+    </header>
+    <div class="row">
+        <div class="col-md-16">
+            <div id="player"></div>
+        </div>
+    </div>
 </div>
 </body>
 <script>
-var tag = document.createElement('script');
+    var tag = document.createElement('script');
 
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var player;
-function onYouTubeIframeAPIReady() {
-player = new YT.Player('player', {
-videoId: '{{ video.video_key }}'
-});
-}
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            videoId: '{{ video.video_key }}'
+        });
+    }
 </script>
 </html>
 ```
