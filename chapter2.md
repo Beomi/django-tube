@@ -242,13 +242,15 @@ Django는 django template 이라는 템플릿 엔진이라는 것을 통해서 h
 <body>
 <div class="content container">
     <header class="page-header" style="overflow: auto;">
-        <h1><a href="{% url 'video:list' %}" style="float: left;">Video List</a></h1>
+        <h1>Video List</h1>
         <a class="btn btn-default" href="/video/new" style="float: right;">New Video</a>
     </header>
     <div class="row">
         <div class="col-md-12">
             {% for video in video_list %}
-                <h4>{{ video.title }}</h4>
+                <a href="{% url 'video:detail' video.id %}">
+                    <h4>{{ video.title }}</h4>
+                </a>
             {% endfor %}
         </div>
     </div>
