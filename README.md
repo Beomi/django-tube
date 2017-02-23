@@ -1,4 +1,4 @@
-# Django-Tube 
+# Django-Tube
 
 ![](/assets/djangogirls.jpg)
 
@@ -18,7 +18,7 @@
 
 이 튜토리얼은 열정적인 장고걸스서울 코치와 자원봉사자들의 수고로 작성되었습니다.
 
-> 작성: [강명서](https://github.com/Leop0ld),  [이소은](https://github.com/mojosoeun)
+> 작성: [강명서](https://github.com/Leop0ld),  [이소은](https://github.com/mojosoeun), [이준범](https://github.io/beomi)
 
 ## 도움주신 분들 {#도움주신-분들}
 
@@ -54,4 +54,3 @@
 ### 따라하기 {#따라하기}
 
 그럼 다음 링크 에서 차근차근 하나씩 따라가 봅시다.
-

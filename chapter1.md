@@ -151,8 +151,10 @@ Django는 파이썬으로 만들어진 무료 오픈소스 웹 어플리케이�
 
 그리고 이제 아래 명령어를 이용해서 django를 설치합니다.
 
+> 앞에 myvenv가 있는지 확인 후 진행하세요!
+
 ```bash
-$ pip install django
+(myvenv)$ pip install django
 ```
 
 축하합니다! 이제 장고 프로젝트를 시작할 준비가 되었습니다!
