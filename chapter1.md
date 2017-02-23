@@ -4,13 +4,13 @@
 
 # 파이썬 설치하기
 
-장고는 파이썬으로 만들어졌는데요! 장고를 하기 위해서는 파이썬이 있어야 합니다. 파이썬 3.5 를 사용할 거에요.
+장고는 파이썬으로 만들어졌는데요! 장고를 하기 위해서는 파이썬이 설치되어 있어야 합니다. 파이썬 3.5 를 사용할 거에요.
 
-먼저 Mac/Linux 환경에서는 terminal, Windows 환경에서는 prompt을 열고 프로젝트를 만들 폴더로 이동해봅시다. Command Line 여는 방법은 [여기](https://tutorial.djangogirls.org/ko/intro_to_command_line/#커맨드-라인-열기)를 참고 하면 됩니다!
+먼저 Mac/Linux 환경에서는 terminal\(터미널\), Windows 환경에서는 prompt\(명령 프롬포트\)을 열고 프로젝트를 만들 폴더로 이동해봅시다. Command Line 여는 방법은 [여기](https://tutorial.djangogirls.org/ko/intro_to_command_line/#커맨드-라인-열기)를 참고 하면 됩니다!
 
 ### 윈도우 {#윈도우}
 
-윈도우용 파이썬은 [여기](https://www.python.org/downloads/release/python-353/)에서 다운 받을 수 있습니다.  이 사이트에서 설치파일을 다운로드 받아 설치합니다. 파이썬을 설치한 경로를 기억해주시면 좋답니다.
+윈도우용 파이썬은 [여기](https://www.python.org/downloads/release/python-353/)에서 다운 받을 수 있습니다.  이 사이트에서 [설치파일을 다운로드](https://www.python.org/ftp/python/3.5.3/python-3.5.3.exe) 받아 설치합니다. 파이썬을 설치한 경로를 기억해주시면 좋답니다.
 
 \*한가지 주의할 것은 설치 마법사의 "Customize"라는 두 번째 화면입니다. 여기서 보이듯이 스크롤을 내려 아래쪽에 있는 "Add python.exe to the Path" 항목을 체크해주세요.\*  수정 및 사진 요망
 
