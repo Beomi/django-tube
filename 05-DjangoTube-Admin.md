@@ -72,12 +72,16 @@ admin.site.register(Video)
 
 이제 다시 [비디오 리스트](http://localhost:8000/video/)로 돌아가볼게요.
 
-![](https://www.dropbox.com/s/lelyhli24a0me0a/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-02-24%20%EC%98%A4%ED%9B%84%2011.11.13.png?dl=1)
+![](/assets/void-new-video.png)
 
-아쉽지만, 위와 같은 에러 화면이 뜰 거에요.
+잘 보이네요!
 
-아직 `video`폴더 안의 `urls.py`에 `detail`이라는 이름을 가진 url을 등록해주지 않았기 때문이에요.
+![](/assets/fill-input-new-video.png)
 
-다음 챕터에서 추가해 볼게요!
+이제 값을 입력하고 Submit 버튼을 눌러봅시다.
 
-그리고, 장고 Admin이 아니라 우리가 만든 페이지에서 Video를 등록해 볼게요.
+![](/assets/complete-video-list.png)
+
+다음과 같이 생성되는 것을 볼 수 있어요.
+
+이제 장고 Admin이 아니라 우리가 만든 페이지에서 Video를 등록해 볼게요.
