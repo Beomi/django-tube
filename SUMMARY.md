@@ -12,6 +12,3 @@
 * \#09 [템플릿의 동적 데이터](/django_dynamic.md)
 * \#10 [Django 템플릿](//django_template.md)
 * \#11 [더 나아가기](/advanced.md)
-
-
-
