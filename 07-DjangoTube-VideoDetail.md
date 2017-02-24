@@ -43,7 +43,7 @@ urlpatterns = [
 
 ## Template 추가하기
 
-그럼 이제 `video/views.py` 에서 지정했던 `video/templates/video_detail.html` 파일을 만들어볼게요.
+그럼 이제 `video/views.py` 에서 지정했던 `video/templates/video/video_detail.html` 파일을 만들어볼게요.
 
 > 새로 파일을 만들어주세요! 폴더 위치를 잘 확인하세요!
 
