@@ -1,6 +1,6 @@
 # 설치하기
 
-본격적으로 튜토리얼을 실습하기 전에 몇가지 설치 해야 되는 것이 있어요!
+본격적으로 튜토리얼을 실습하기 전에 몇가지 설치해야 되는 것이 있어요!
 
 # 파이썬 설치하기
 
@@ -18,7 +18,6 @@
 
 ![](https://www.dropbox.com/s/oi3i8d7dxl7l6nm/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-02-23%2020.13.35.png?dl=1)
 
-
 만약 아래와 같은 화면이 뜬다면 '예'를 눌러주세요.
 
 ![](https://www.dropbox.com/s/loxaxfk0wr7ka2f/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-02-23%2020.16.56.png?dl=1)
@@ -27,7 +26,7 @@
 
 ![](https://www.dropbox.com/s/9miyxofq94ftjdy/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-02-23%2020.17.55.png?dl=1)
 
-파이썬이 잘 설치되었는지 확인하려면, 명령 프롬포트(prompt)를 켜 아래 명령어를 입력해 보세요!
+파이썬이 잘 설치되었는지 확인하려면, 명령 프롬포트\(prompt\)를 켜 아래 명령어를 입력해 보세요!
 
 ```bash
 $ python --version
@@ -46,7 +45,7 @@ Python 3.5.3
 
 ![](https://www.dropbox.com/s/gcn6yvw9761ldpu/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-02-23%2020.28.59.png?dl=1)
 
-아래의 "환경 변수(N)..."을 눌러 주신 후,
+아래의 "환경 변수\(N\)..."을 눌러 주신 후,
 
 ![](https://www.dropbox.com/s/aw422rg4m9wpj3f/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-02-23%2020.30.17.png?dl=1)
 
@@ -54,14 +53,13 @@ Python 3.5.3
 
 ![](https://www.dropbox.com/s/745q16o9y5r6oae/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-02-23%2020.31.12.png?dl=1)
 
-"새로 만들기(N)"을 누르신 후 아래 두 줄을 각각 입력해 주세요.(새로 만들기를 두번 하셔야 합니다.)
+"새로 만들기\(N\)"을 누르신 후 아래 두 줄을 각각 입력해 주세요.\(새로 만들기를 두번 하셔야 합니다.\)
 
 `C:\Users\윈도우유저이름\AppData\Local\Programs\Python\Python35-32`
 
 `C:\Users\윈도우유저이름\AppData\Local\Programs\Python\Python35-32\Scripts`
 
 > 경로는 위에서 파이썬을 설치한 경로입니다.
-
 
 ### 리눅스 {#리눅스}
 
@@ -84,7 +82,7 @@ $ sudo apt-get install python3.5
 
 [여기](https://www.python.org/downloads/release/python-353/)에서 파이썬 [설치프로그램을 다운](https://www.python.org/ftp/python/3.5.3/python-3.5.3-macosx10.6.pkg) 받으신 후, 다운받은 파일을 더블클릭해 설치를 진행해 주세요.
 
-설치가 다 진행되었다면, 터미널(terminal)창을 켜신 후 아래 명령어를 통해 파이썬이 잘 설치되었는지 확인해 보세요!
+설치가 다 진행되었다면, 터미널\(terminal\)창을 켜신 후 아래 명령어를 통해 파이썬이 잘 설치되었는지 확인해 보세요!
 
 ```bash
 $ python3 --version
@@ -159,13 +157,13 @@ Django는 파이썬으로 만들어진 무료 오픈소스 웹 어플리케이�
 
 축하합니다! 이제 장고 프로젝트를 시작할 준비가 되었습니다!
 
-# 코드에티터 설치하기
+# 코드에디터 설치하기
 
 코드에디터를 설치하면 개발에 좀 더 도움이 되는 환경에서 개발을 할 수 있어요. 여러 에디터 중 여러분들이 마음에 드는 코드 에디터 하나를 골라 컴퓨터에 설치해 주세요!
 
-### Atom[\[다운로드 링크\]](https://atom.io/)
+### 1. Atom[\[다운로드 링크\]](https://atom.io/)
 
-### sublime text [\[다운로드 링크\]](https://www.sublimetext.com/3)
+### 2. Sublime text [\[다운로드 링크\]](https://www.sublimetext.com/3)
 
 # Github 계정 만들기
 
@@ -174,3 +172,6 @@ Django는 파이썬으로 만들어진 무료 오픈소스 웹 어플리케이�
 ##### 우와! 이제 코딩 할 준비를 다 하게 되었어요! 고생하셨습니다!
 
 ##### 이제 본격적으로 시작해볼까요? :\)
+
+
+
