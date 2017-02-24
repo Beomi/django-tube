@@ -36,7 +36,7 @@ $ cd djangogirls
 └── manage.py
 ```
 
-데이터베이스를 생성해 주기 위해 아래의 명령어를 입력해 줍니다.
+사이트 내 데이터를 저장하기 위한 데이터베이스를 생성해 주기 위해 아래의 명령어를 입력해 줍니다.
 
 ```
 (myvenv) ~/djangogirls$ python manage.py migrate
@@ -69,7 +69,7 @@ $ cd djangogirls
 
 여러분의 첫번째 프로젝트를 만들었어니 djangotube 프로젝트 안에 video 라는 App을 만들어 볼거에요!
 
-> manage.py 파일이 있는 위치에서 다음 명령어를 입력해 보도록 하죠.
+> manage.py 파일이 있는 위치에서 다음 명령어를 입력해합니다.
 
 ```
 (myvenv) ~/djangogirls$ python manage.py startapp video
