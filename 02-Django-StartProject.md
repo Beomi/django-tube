@@ -1,16 +1,18 @@
-# DjangoTube 시작하기
+# 나의 첫번째 DjangoTube 프로젝트!
 
-다음 명령어를 통해 django 프로젝트를 만듭니다.
+오늘 우리는 Django로 유튜브동영상을 추가할 수 있는 간단한 동영상 서비스를 만들어 볼거에요!
+
+앞에서 Python과 Django를 설치 해 보았으니 본격적으로 프로젝트를 시작해 보는 첫 단추를 끼워 봅시다. 장고의 기본 골격을 만들어주는 스크립트를 실행해 볼건데요. 이 디렉토리와 파일 묶음은 나중에 사용할 것입니다. 장고에서는 디렉토리 이름과 파일 이름이 무척 중요하므로 파일이름을 마음대로 변경해서도, 다른곳으로 옮기면 안되는 것을 꼭 기억해 주세요!
+
+다음 명령어를 실행해서 여러분의 첫번째 django 프로젝트를 만들어 봅시다.
 
 ```
-(myvenv) $ django-admin startproject djangotube
+(myvenv) $ django-admin startproject djangotube .
 ```
+> 점 .은 현재 디렉토리에 장고를 설치하라고 스크립트에 알려주기 때문에 중요해요. 꼭 잊지 말아주세요!
 
-입력하게 되면 `djangotube`라는 폴더가 하나 생긴답니다.
 
-이 폴더 안에는 `djangotube`라는 이름을 가진 django 프로젝트가 생긴 거랍니다. 장고가 알아서 기본 틀을 만들어 준거죠!
-
-처음에 django 프로젝트를 만들게 되면 다음과 같은 구조를 가져요.
+`djangotube`라는 이름을 가진 django 프로젝트를 생성하게 되면 아래와 같은 디렉토리 구조를 가지게 됩니다.
 
 ```
 .
@@ -22,51 +24,47 @@
 └── manage.py
 ```
 
-프로젝트만 만들고 지켜볼 수는 없겠죠? 한 번 실행시켜볼게요!
-
-그 전에 먼저 다음 명령어를 통해 데이터베이스를 생성해 줍니다.
+데이터베이스를 생성해 주기 위해 아래의 명령어를 입력해 줍니다.
 
 ```
 (myvenv) $ python manage.py migrate
+
 ```
 
-이제 `db.sqlite3` 라는 데이터베이스 파일이 생겼을 거에요.
+`db.sqlite3`라는 데이터베이스 파일이 생겼을 거에요.
 
-다음에는 django 서버를 동작시켜볼게요.
-
-아래 명령어로 통해 django 서버를 구동시킬 수 있답니다.
+이제 웹 서버를 시작해 웹사이트가 잘 작동하는지 확인해봅시다.
 
 ```
 (myvenv) $ python manage.py runserver
+
 ```
 
-위와 똑같이 명령어를 입력한다면 브라우저\(크롬, 인터넷익스플로러 등\)로 `127.0.0.1:8000`에 접속해서 장고가 잘 동작하는지 확인할 수 있답니다.
+윈도우에서 UnicodeDecodeError를 썼는데 오류가 난다면 아래 명령을 대신 써보세요.
+
+```
+(myvenv) python manage.py runserver 0:8000
+
+```
+
+브라우저\(크롬, 인터넷익스플로러 등\)로 `127.0.0.1:8000`에 접속해서 장고가 잘 동작하는지 확인해보세요!
 
 ![](/assets/itworks.png)
 
-위와 같은 페이지가 뜬다면 성공적으로 장고가 동작하고 있는거에요. 축하합니다! :\)
+위와 같은 페이지가 뜬다면 성공적으로 장고가 동작하고 있는거에요.
+우와아아 축하합니다! :\)
 
-# 본격적으로 코딩 시작하기
+## 어플리케이션 추가하기
 
-django 서버를 띄우는 데에 성공했으니 이제 기능을 구현해봅시다.
+여러분의 첫번째 프로젝트를 만들었어니 djangotube 프로젝트 안에 video 라는 App을 만들어 볼거에요!
 
-먼저 저희는 Youtube에서 Video의 주소를 가져와서 제목과 함께 저장할거에요.
-
-그러기 위해서는 django에 있는 `Model`이라는 걸 먼저 알아야 해요.
-
-또, `Model`을 사용하기 위해서는 `App` 이라는 것도 알아야 한답니다.
-
-백문이 불여일견. 한 번 App을 만들어볼까요?
-
-App은 다음 명령어로 만들 수 있어요. 저는 video 라는 App을 만들어 보겠습니다.
-
-> manage.py 파일이 있는 위치에서 명령어를 입력하시면 됩니다.
+> manage.py 파일이 있는 위치에서 다음 명령어를 입력해 보도록 하죠.
 
 ```
 (myvenv) $ python manage.py startapp video
 ```
 
-djangotube 폴더\(manage.py파일이 있는 곳\) 안에서 다음과 같이 입력해주게 되면 프로젝트 파일의 구조는 다음과 같아집니다.
+djangotube 폴더\(manage.py파일이 있는 곳\) 안에서 위의 명령어를 입력해 주게 되면 아래와 같은 디렉토리 구조를 가지게 됩니다.
 
 ```
 .
@@ -87,4 +85,19 @@ djangotube 폴더\(manage.py파일이 있는 곳\) 안에서 다음과 같이 �
     └── views.py
 ```
 
-이제 진짜진짜 본격적으로 코딩해볼게요!
+어플리케이션을 생성한 후 장고에게 사용해야한다고 알려줘야 합니다. 이 역할을 하는 파일이 mysite/settings.py인데요. 이 파일 안에서 INSTALLED_APPS를 열어, )바로 위에 `video`를 추가하세요. 최종 결과물은 아래와 다음과 같을 거에요.
+
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'video',
+]
+
+```
+
+다음 챕터로 넘어가 볼까요!!
