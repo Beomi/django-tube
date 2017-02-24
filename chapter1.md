@@ -161,9 +161,9 @@ Django는 파이썬으로 만들어진 무료 오픈소스 웹 어플리케이�
 
 코드에디터를 설치하면 개발에 좀 더 도움이 되는 환경에서 개발을 할 수 있어요. 여러 에디터 중 여러분들이 마음에 드는 코드 에디터 하나를 골라 컴퓨터에 설치해 주세요!
 
-### 1. Atom[\[다운로드 링크\]](https://atom.io/)
+#### 1. Atom[\[다운로드 링크\]](https://atom.io/)
 
-### 2. Sublime text [\[다운로드 링크\]](https://www.sublimetext.com/3)
+#### 2. Sublime Text [\[다운로드 링크\]](https://www.sublimetext.com/3)
 
 # Github 계정 만들기
 
