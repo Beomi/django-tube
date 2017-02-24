@@ -87,7 +87,7 @@ djangotube 폴더\(manage.py파일이 있는 곳\) 안에서 위의 명령어를
     └── views.py
 ```
 
-어플리케이션을 생성한 후 장고에게 사용해야한다고 알려줘야 합니다. 이 역할을 하는 파일이 mysite/settings.py인데요. 이 파일 안에서 INSTALLED_APPS 리스트의 제일 아래에 `video`를 추가하세요. 최종 결과물은 아래와 다음과 같을 거에요.
+어플리케이션을 생성한 후 장고에게 사용해야한다고 알려줘야 합니다. 이 역할을 하는 파일이 `djangotube/settings.py`인데요. 이 파일 안에서 INSTALLED_APPS 리스트의 제일 아래에 `video`를 추가하세요. 최종 결과물은 아래와 다음과 같을 거에요.
 
 ```py
 INSTALLED_APPS = [
