@@ -2,15 +2,15 @@
 
 Django에는 `Admin`이라는 강력한 기능이 기본적으로 제공된답니다.
 
-이 `Admin`은 앱 폴더(`video`폴더)안의 `admin.py`파일에 코드 몇 줄만 추가해줘도 바로 사용할 수 있어요.
+이 `Admin`은 앱 폴더\(`video`폴더\)안의 `admin.py`파일에 코드 몇 줄만 추가해줘도 바로 사용할 수 있어요.
 
-## 최고 관리자(Superuser)만들기
+## 최고 관리자\(Superuser\)만들기
 
 admin 파일을 수정하기 전에, 장고에 들어가는 첫번째 슈퍼 사용자를 만들어 볼게요!
 
 슈퍼 사용자는 장고 웹 사이트의 최고관리자랍니다.
 
-이 슈퍼 사용자는 `createsuperuser`라는 명령어로 만들 수 있답니다.
+이 슈퍼 사용자는 `createsuperuser`라는 명령어로 만들 수 있어요
 
 ```bash
 (myvenv) $ python manage.py createsuperuser
@@ -58,7 +58,7 @@ admin.site.register(Video)
 
 ![](https://www.dropbox.com/s/tqyheqf1hzbdfoc/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-02-24%2022.09.47.png?dl=1)
 
-위 스크린샷을 보면 위쪽 URL에 `watch?v=어쩌구저쩌구`라는 부분이 보이실거에요.(파란색 하이라이트)
+위 스크린샷을 보면 위쪽 URL에 `watch?v=어쩌구저쩌구`라는 부분이 보이실거에요.\(파란색 하이라이트\)
 
 이 부분이 바로 유투브 동영상의 고유 키 인데요, 이 키를 복사해서 아래의 Django Admin에서 Video Key부분에 입력해 볼게요.
 
@@ -85,3 +85,4 @@ admin.site.register(Video)
 다음과 같이 생성되는 것을 볼 수 있어요.
 
 이제 장고 Admin이 아니라 우리가 만든 페이지에서 Video를 등록해 볼게요.
+
