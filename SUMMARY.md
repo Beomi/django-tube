@@ -6,7 +6,7 @@
 * [Django 모델](//django_model.md)
 * [Django 관리자](/django_admin.md)
 * [Django urls](//django_url.md)
-* [Django 뷰](//django_view)
+* [Django 뷰](/django_view.md)
 * [템플릿의 동적 데이터](/django_dynamic.md)
 * [Django 템플릿](//django_template.md)
 * [더 나아가기](/advanced.md)
