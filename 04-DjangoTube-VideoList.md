@@ -65,7 +65,7 @@ urls에서는 '어떤 URL'로 들어올 때 '어떤 View'를 보여줄 지를 �
 
 아래에서 코드를 마저 작성하고 사용법을 알아볼게요.
 
-우선 `video`폴더안의 `urls.py` 에는 다음과 같이 코드를 적어주세요.
+우선 `video`폴더안의 `urls.py` 에는 다음과 같이 코드를 적어주세요. (새로 파일을 만들어서 적어주세요!)
 
 > `djangotube/urls.py`와 `video/urls.py`를 헷갈리지 않도록 주의하세요.
 
@@ -100,6 +100,8 @@ urlpatterns = [
 Django는 `django template`이라는 템플릿 엔진이라는 것을 통해서 html에 **특별한 구문** 을 작성할 수 있습니다.
 
 역시나 한 번 `video/templates/video/video_list.html` 을 작성해봅시다!
+
+> `video`폴더 안에 `templates`라는 폴더를 만드시고, 그 안에 `video`폴더를 만드신 후 `video_list.html`파일을 만드셔서 입력하시면 됩니다.
 
 ```html
 {% load staticfiles %}
