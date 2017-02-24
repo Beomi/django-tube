@@ -44,4 +44,3 @@ title과 Video Key 모두 문자열로 구성되어있기 때문에 `CharField`\
 자, 벌써 모델 만들기가 끝났어요!
 
 이제 비디오 데이터들을 보여주는 `View`와 `Template`을 만들어볼게요.
-
