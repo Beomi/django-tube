@@ -58,6 +58,8 @@ urlpatterns = [
 
 이렇게 `/video/new` 경로로 들어가면 사용자에게 입력받을 수 있게끔 연결시켜줍니다.
 
+> 각 url 끝에 콤마(,)를 붙여주는 것을 잊지마세요!
+
 ## Template 추가하기
 
 다음은 `video/templates/video/video_new.html` 의 코드입니다.
@@ -114,6 +116,8 @@ django의 view 쪽에서 input 안에 있는 값을 받게 되는데 그 값을 
 다 작성되었다면 다시한번 장고 서버를 실행해 보세요!
 
 > 잊지 않으셨죠? 장고 서버는 `python manage.py runserver`명령어로 띄울 수 있답니다!
+
+이제 [http://localhost:8000/video/new](http://localhost:8000/video/new)로 들어가 보세요!
 
 ![](/assets/void-new-video.png)
 

@@ -18,28 +18,34 @@ def video_detail(request, video_id):
 
 ## Url 추가하기
 
-이 `video_url` 은 `urls.py` 에서 넘어옵니다. 그럼 `video/urls.py` 도 작성해봅시다.
+이 `video_url` 은 `urls.py` 에서 넘어옵니다. 그럼 `video`폴더 안의 `urls.py`에도 추가해 볼게요.
 
 ```python
+# video/urls.py
 from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
     url(r'^$', views.video_list, name='list'),
     url(r'^new$', views.video_new, name='new'),
+    # 이 코드를 추가해 주세요
     url(r'^(?P<video_id>\d+)/$', views.video_detail, name='detail'),
 ]
 ```
 
 이렇게 작성해주시면 됩니다.
 
-맨 아래에서 두 번째 줄이 추가가 되었는데, 이 부분의 의미는 video_id 라는 숫자로 이루어진 값을 받아서 `video_detail` 라는 뷰에 인자로 넘겨주겠다는 의미입니다.
+> 역시 url 끝에 콤마(,) 찍는 것 잊지마세요!
+
+맨 아래에서 두 번째 줄이 추가가 되었는데, 이 부분의 의미는 video_id 라는 숫자로 이루어진 값을 받아서 `video_detail` 라는 뷰에 인자로 넘겨주겠다는 의미랍니다.
 
 따라서 우리는 `video_detail` 함수에서 `video_id` 라는 인자를 받아서 사용했어요.
 
 ## Template 추가하기
 
-그럼 이제 `video/views.py` 에서 작성했었던 `video/templates/video_detail.html` 을 수정해볼게요.
+그럼 이제 `video/views.py` 에서 지정했던 `video/templates/video_detail.html` 파일을 만들어볼게요.
+
+> 새로 파일을 만들어주세요! 폴더 위치를 잘 확인하세요!
 
 ```html
 {% load staticfiles %}
