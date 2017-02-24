@@ -31,8 +31,8 @@ title과 Video Key 모두 문자열로 구성되어있기 때문에 `CharField`\
 그러기 위해서는 아래의 명령어로 실행할 수 있답니다.
 
 ```
-(myvenv) $ python manage.py makemigrations
-(myvenv) $ python manage.py migrate
+(myvenv) $ python manage.py makemigrations video
+(myvenv) $ python manage.py migrate video
 ```
 
 > makemigrations/migrate 명령어는 models.py파일을 수정한 후 사용합니다.
