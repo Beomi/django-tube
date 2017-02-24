@@ -1,3 +1,44 @@
+# View (뷰)
+
+django에서의 View는 각종 로직을 처리하는 곳입니다.
+
+이렇게 말하면 어떤 것인지 감이 안오시죠? 바로 만들어 볼게요.
+
+가장 먼저, 우리가 만든 Video의 목록을 보고 싶어요!
+
+`video`폴더 안의 `views.py`에 아래와 같이 코드를 써 주세요.
+
+```python
+# video/views.py
+from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse
+from .models import Video
+
+
+def video_list(request):
+    video_list = Video.objects.all()
+    return render(request, 'video/video_list.html', {'video_list': video_list})
+```
+
+7번째 줄은 저장된 Video 객체들을 전부 가져오겠다는 뜻이랍니다.
+
+저렇게 가져온 Video 들을 Python의 Dictionary\(사전\) 형태로 Template 쪽으로 넘겨주게 됩니다.
+
+그렇게 되면 Template 쪽에서 ‘video\_list’ 라는 이름으로 video\_list 라는 리스트를 사용할 수 있게 된답니다.
+
+이 부분은 Template 파트에서 좀 더 자세히 알려드릴게요.
+
+하지만 이 코드는 바로 동작하지는 않아요. 왜냐하면, 바로 `video/video_list.html` 파일이 없기 때문이죠.
+
+게다가 이 View를 어떤 url에서 보여줄 지도 아직 설정하지 않았고요.
+
+해야할 게 많죠...
+
+하지만 괜찮아요. 곧 만들테니까요!
+
+자 그럼 template 파일을 만들고 연결해볼게요!
+
+
 # Template \(템플릿\)
 
 Django는 `django template`이라는 템플릿 엔진이라는 것을 통해서 html에 **특별한 구문** 을 작성할 수 있습니다.
@@ -299,4 +340,3 @@ Youtube API는 그 Key를 가지고 저희가 원했던 동영상을 가져와�
 비록 짧은 시간이었지만 django의 기초가 되는 내용을 훑어보는 시간을 가졌어요.
 
 시간이 짧아서 `배포` 부분이나 좀 더 다양한 내용을 다루지는 못했으나 더 배우시고 싶으시면 [장고걸스 튜토리얼](https://djangogirlsseoul.gitbooks.io/tutorial/content/) 을 찾아주세요!
-

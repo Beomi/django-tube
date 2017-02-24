@@ -1,4 +1,4 @@
-# djangotube 시작하기
+# DjangoTube 시작하기
 
 다음 명령어를 통해 django 프로젝트를 만듭니다.
 
