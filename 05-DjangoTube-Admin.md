@@ -62,14 +62,6 @@ admin.site.register(Video)
 
 이제 다시 [비디오 리스트](http://localhost:8000/video/)로 돌아가볼게요.
 
-![](/assets/void-new-video.png)
-
-잘 보이네요!
-
-![](/assets/fill-input-new-video.png)
-
-이제 값을 입력하고 Submit 버튼을 눌러봅시다.
-
 ![](/assets/complete-video-list.png)
 
 다음과 같이 생성되는 것을 볼 수 있어요. 이제 장고 Admin이 아니라 우리가 만든 페이지에서 Video를 등록해 볼게요.
