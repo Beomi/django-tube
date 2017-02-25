@@ -21,7 +21,7 @@ class Video(models.Model):
 (myvenv) $ python manage.py migrate video
 ```
 
-> makemigrations/migrate 명령어는 models.py파일을 수정한 후 사용합니다.
+> makemigrations / migrate 명령어는 models.py 파일을 수정한 후 사용합니다.
 
 자, 벌써 모델 만들기가 끝났어요!
 

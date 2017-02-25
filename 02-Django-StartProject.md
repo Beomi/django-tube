@@ -22,7 +22,7 @@ $ cd djangogirls
 (myvenv) ~/djangogirls$ django-admin startproject djangotube .
 ```
 
-> 점 .은 현재 디렉토리에 장고를 설치하라고 스크립트에 알려주기 때문에 중요해요. 꼭 잊지 말아주세요!
+> 점 \(`.`\)은 현재 디렉토리에 장고를 설치하라고 알려주기 때문에 매우 중요해요. 꼭 잊지 말아주세요!
 
 `djangotube`라는 이름을 가진 django 프로젝트를 생성하게 되면 아래와 같은 디렉토리 구조를 가지게 됩니다.
 
@@ -56,7 +56,7 @@ $ cd djangogirls
 (myvenv) ~/djangogirls $ python manage.py runserver 0:8000
 ```
 
-브라우저\(크롬, 인터넷익스플로러 등\)로 `127.0.0.1:8000`에 접속해서 장고가 잘 동작하는지 확인해보세요!
+브라우저\(크롬, 인터넷 익스플로러, 파이어폭스 등\)로 `127.0.0.1:8000`에 접속해서 장고가 잘 동작하는지 확인해보세요!
 
 ![](/assets/itworks.png)
 
@@ -110,7 +110,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-> 주의: INSTALLED\_APPS의 모든 요소 끝에 콤마\(,\)가 있는지 꼭 확인하세요!
+> 주의: INSTALLED\_APPS의 모든 요소 끝에 콤마\(`,`\)가 있는지 꼭 확인하세요!
 
 다음 챕터로 넘어가 볼까요!!
 

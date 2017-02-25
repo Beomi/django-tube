@@ -18,7 +18,7 @@ def video_list(request):
     return render(request, 'video/video_list.html', {'video_list': video_list})
 ```
 
-7번째 줄 즉 아래 부분은 저장된 Video 객체들을 전부 가져오겠다는 뜻입니다
+7번째 줄, 즉 아래 부분은 저장된 Video 객체들을 전부 가져오겠다는 뜻입니다
 
 ```
 video_list = Video.objects.all()

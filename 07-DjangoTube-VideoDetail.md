@@ -17,7 +17,7 @@ def video_detail(request, video_id):
 
 ## Url 추가하기
 
-이 `video_url` 은 `urls.py` 에서 넘어옵니다. 그럼 `video`폴더 안의 `urls.py`에도 추가해 볼게요.
+이 `video_id` 은 `urls.py` 에서 넘어옵니다. 그럼 `video`폴더 안의 `urls.py`에도 추가해 볼게요.
 
 ```python
 # video/urls.py
@@ -36,7 +36,7 @@ urlpatterns = [
 
 > 역시 url 끝에 콤마\(,\) 찍는 것 잊지마세요!
 
-맨 아래에서 이럽 부분이 추가가 되었는데, 
+맨 아래에서 이러한 부분이 추가가 되었는데, 
 
 ```
 url(r'^(?P<video_id>\d+)/$', views.video_detail, name='detail')
