@@ -101,7 +101,7 @@ Django는 `django template`이라는 템플릿 엔진이라는 것을 통해서 
 <body>
 <div class="content container">
     <header class="page-header" style="overflow: auto;">
-        <h1>Video List</h1>
+        <h1 style="display: inline;">Video List</h1>
         <a class="btn btn-default" href="/video/new" style="float: right;">New Video</a>
     </header>
     <div class="row">
