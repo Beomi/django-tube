@@ -17,6 +17,6 @@ Django-Tube 잘 만들어 보셨나요? 좀 더 심화된 내용을 하고 싶�
 
 다음에 또 만나요!
 
-Cupcakes and high fives,  
+Cupcakes and high fives,
 Django Girls Seoul
 
