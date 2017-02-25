@@ -95,7 +95,7 @@ Django는 `django template`이라는 템플릿 엔진이라는 것을 통해서 
     <div class="row">
         <div class="col-md-12">
             {% for video in video_list %}
-                <a href="{% url 'video:detail' video.id %}">
+                <a href="/video/{{ video.id }}">
                     <h4>{{ video.title }}</h4>
                 </a>
             {% endfor %}
