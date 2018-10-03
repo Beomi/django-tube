@@ -10,7 +10,13 @@
 
 ### 윈도우 {#윈도우}
 
-윈도우용 파이썬은 [여기](https://www.python.org/downloads/release/python-361/)에서 다운 받을 수 있습니다.  먼저, 사용 중인 컴퓨터 윈도우 운영체제가 32비트인지 64비트인지 확인해야 합니다.  `내 PC` 의 속성 페이지에 `시스템 종류` 부분을 보면 확인할 수 있습니다.  **64 비트** 버전의 Windows인 경우 Windows x86-64 executable installer를 다운로드하세요. 이외에는 Windows x86 executable installer을 다운로드하세요. 
+먼저, 사용 중인 컴퓨터 윈도우 운영체제가 32비트인지 64비트인지 확인해야 합니다.  `내 PC` 의 속성 페이지에 `시스템 종류` 부분을 보면 확인할 수 있습니다.  
+
+윈도우용 파이썬은 [여기](https://www.python.org/downloads/release/python-361/)에서 다운 받을 수 있습니다.  Scroll을 아래로 내려서, `Python 3.6.1` 클릭하세요.  
+
+![](/assets/pythonHompae1.PNG)
+
+**64 비트** 버전의 Windows인 경우 Windows x86-64 executable installer를 다운로드하세요. 이외에는 Windows x86 executable installer을 다운로드하세요. 
 
 > 기본적으로 python은 `C:\Users\윈도우유저이름\AppData\Local\Programs\Python\Python36`에 설치됩니다.
 
