@@ -5,7 +5,7 @@
 일단 여러분이 프로젝트를 시작할 디렉토리를 만들거에요.
 
 ```
-$ mkdir djangogirls 
+$ mkdir djangogirls
 ```
 
 그리고 해당 디렉토리로 이동해 봅시다.
@@ -69,7 +69,7 @@ $ cd djangogirls
 
 여러분의 첫번째 프로젝트를 만들었어니 djangotube 프로젝트 안에 video 라는 App을 만들어 볼거에요!
 
-> manage.py 파일이 있는 위치에서 다음 명령어를 입력해합니다.
+> manage.py 파일이 있는 위치에서 다음 명령어를 입력해야 합니다.
 
 ```
 (myvenv) ~/djangogirls$ python manage.py startapp video
