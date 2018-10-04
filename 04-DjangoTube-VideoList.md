@@ -16,9 +16,9 @@ View는 어떻게 구성되어 있는지 볼까요?
 # video/views.py
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
-from .models import Video
-​
-​
+from .models import Video​
+
+
 def video_list(request):
     video_list = Video.objects.all()
     return render(request, 'video/video_list.html', {'video_list': video_list})
@@ -68,7 +68,7 @@ Url은 사이트의 경로에 따라 어떤 View를 보여줄 것인지 판별�
 # djangotube/urls.py
 from django.conf.urls import url, include
 from django.contrib import admin
-​
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^video/', include('video.urls', namespace='video')),
@@ -85,7 +85,7 @@ urlpatterns = [
 # video/urls.py
 from django.conf.urls import url, include
 from . import views
-​
+
 urlpatterns = [
     url(r'^$', views.video_list, name='list')
 ]
