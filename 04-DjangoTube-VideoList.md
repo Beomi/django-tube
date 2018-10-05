@@ -170,13 +170,12 @@ video_list는 Video의 배열이라고 생각하시면 편하실거에요.
 > 명령어 앞에 (myvenv) 즉 가상 환경이 떠 있는지 확인하세요!
 
 ```shell
-(myvenv) $ python manage.py runserver
+$ python manage.py runserver
 ```
 
 위의 명령어를 입력한 후에 http://localhost:8000/video 로 들어가보세요!
 
 ![](/assets/empty-video-list.png)
-
 
 아무것도 없어요. 조금 허무한가요? 우리가 아직 아무 Video도 넣어주지 않아서 아무것도 뜨지 않는 것이랍니다.
 

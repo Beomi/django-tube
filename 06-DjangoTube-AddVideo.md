@@ -108,7 +108,7 @@ from . import views
 
 > 잊지 않으셨죠? 장고 서버는 **`python manage.py runserver`** 명령어로 띄울 수 있답니다!
 
-이제http://localhost:8000/video/new로 들어가 보세요!
+이제 http://localhost:8000/video/new 로 들어가 보세요!
 
 잘 보이네요!
 

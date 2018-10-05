@@ -19,7 +19,7 @@ $ cd djangogirls
 다음 명령어를 실행해서 여러분의 첫번째 django 프로젝트를 만들어 봅시다.
 
 ```
-(myvenv) ~/djangogirls$ django-admin startproject djangotube .
+~/djangogirls$ django-admin startproject djangotube .
 ```
 
 > 점 \(`.`\)은 현재 디렉토리에 장고를 설치하라고 알려주기 때문에 매우 중요해요. 꼭 잊지 말아주세요!
@@ -39,7 +39,7 @@ $ cd djangogirls
 사이트 내 데이터를 저장하기 위한 데이터베이스를 생성해 주기 위해 아래의 명령어를 입력해 줍니다.
 
 ```
-(myvenv) ~/djangogirls$ python manage.py migrate
+~/djangogirls$ python manage.py migrate
 ```
 
 `db.sqlite3`라는 데이터베이스 파일이 생겼을 거에요.
@@ -47,13 +47,13 @@ $ cd djangogirls
 이제 웹 서버를 시작해 웹사이트가 잘 작동하는지 확인해봅시다.
 
 ```
-(myvenv) ~/djangogirls$ python manage.py runserver
+~/djangogirls$ python manage.py runserver
 ```
 
 윈도우에서 UnicodeDecodeError를 썼는데 오류가 난다면 아래 명령을 대신 써보세요.
 
 ```
-(myvenv) ~/djangogirls $ python manage.py runserver 0:8000
+~/djangogirls $ python manage.py runserver 0:8000
 ```
 
 브라우저\(크롬, 인터넷 익스플로러, 파이어폭스 등\)로 `127.0.0.1:8000`에 접속해서 장고가 잘 동작하는지 확인해보세요!
@@ -72,7 +72,7 @@ $ cd djangogirls
 > manage.py 파일이 있는 위치에서 다음 명령어를 입력해야 합니다.
 
 ```
-(myvenv) ~/djangogirls$ python manage.py startapp video
+~/djangogirls$ python manage.py startapp video
 ```
 
 djangotube 폴더\(manage.py파일이 있는 곳\) 안에서 위의 명령어를 입력해 주게 되면 아래와 같은 디렉토리 구조를 가지게 됩니다.
@@ -113,4 +113,3 @@ INSTALLED_APPS = [
 > 주의: INSTALLED\_APPS의 모든 요소 끝에 콤마\(`,`\)가 있는지 꼭 확인하세요!
 
 다음 챕터로 넘어가 볼까요!!
-

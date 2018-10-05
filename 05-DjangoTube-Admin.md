@@ -9,7 +9,7 @@ admin 파일을 수정하기 전에, 장고에 들어가는 첫번째 슈퍼 사
 이 슈퍼 사용자는 `createsuperuser`라는 명령어로 만들 수 있어요
 
 ```bash
-(myvenv) $ python manage.py createsuperuser
+$ python manage.py createsuperuser
 ```
 
 ![](https://www.dropbox.com/s/9s9dd8afhseahq0/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-02-24%2021.59.18.png?dl=1)
@@ -37,7 +37,7 @@ admin.site.register(Video)
 장고 서버는 장고 파일들의 수정을 눈치채면 바로 꺼졌다 다시 켜진답니다. 만약 장고 서버를 꺼버리셨다면, 아래의 `runserver`명령으로 다시 켜 주세요!
 
 ```bash
-(myvenv) $ python manage.py runserver
+$ python manage.py runserver
 ```
 
 이제 다시 들어가 보면, 아래와 같이 Video라는 앱이 Admin화면에서 보일거에요!
@@ -65,4 +65,3 @@ admin.site.register(Video)
 ![](/assets/complete-video-list.png)
 
 다음과 같이 생성되는 것을 볼 수 있어요. 이제 장고 Admin이 아니라 우리가 만든 페이지에서 Video를 등록해 볼게요.
-
