@@ -34,8 +34,8 @@ title과 video_key 모두 문자로 되어있기 때문에 문자열을 저장�
 - `migrate` - makemigration 명령어로 만들어진 migration을 데이터베이스에 적용시켜 줍니다.
 
 ```shell
-$ python manage.py makemigrations video
-$ python manage.py migrate video
+$ python manage.py makemigrations
+$ python manage.py migrate
 ```
 
 > makemigrations / migrate 명령어는 `models.py` 파일을 수정한 후 사용합니다.
