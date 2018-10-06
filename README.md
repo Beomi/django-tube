@@ -18,13 +18,13 @@
 
 이 튜토리얼은 열정적인 장고걸스서울 코치와 자원봉사자들의 수고로 작성되었습니다.
 
-> 작성: [강명서](https://github.com/Leop0ld), [이소은](https://github.com/mojosoeun), [이준범](https://github.io/beomi), [황지영](https://github.com/jyhwng)
+> 작성: [강명서](https://github.com/Leop0ld), [이소은](https://github.com/mojosoeun), [이준범](https://github.com/beomi), [황지영](https://github.com/jyhwng), [고명진](), [김지형](), [이소영](), [서미지]()
 
 ## 도움주신 분들 {#도움주신-분들}
 
 장고걸스서울의 운영진과 코치들이 함께 튜토리얼을 준비했습니다.
 
-> 강명서, 이소은, 송다운, 이미희, 한홍근, 이준범, 양미림, 하현주, 황지영, Marta Allina
+> 강석진, 강명서, 고명진, 구지원, 김준영, 조다영, 배두식, 서미지, 송다운, 안자올, 양미림, 양민지, 윤병호, 이미희, 이소영, 이소은, 이준범, 이화랑, 양미림, 하현주, 한홍근, 황지영, Marta Allina
 
 ## 튜토리얼에서 무엇을 배우게 되나요? {#튜토리얼에서-무엇을-배우게-되나요}
 
@@ -32,7 +32,7 @@
 
 ## 소개 {#소개}
 
-이 튜토리얼은 [장고걸스 튜토리얼](https://tutorial.djangogirls.org/ko/)을 본격적으로 시작하기 전에 간단히 맛보기를 할 수있는 Django-Tube 튜토리얼입니다. KCD행사 동안 함께 Django를 이용하여 비디오 사이트를 만드는 튜토리얼을 실습하시면서 자신감을 가져보아요!
+이 튜토리얼은 [장고걸스 튜토리얼](https://tutorial.djangogirls.org/ko/)을 본격적으로 시작하기 전에 간단히 맛보기를 할 수있는 Django-Tube 튜토리얼입니다. Dev Django 행사 동안 함께 Django를 이용하여 비디오 사이트를 만드는 튜토리얼을 실습하시면서 자신감을 가져보아요!
 
 ## 설명 {#설명}
 
