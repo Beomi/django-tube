@@ -15,7 +15,7 @@ def video_new(request):
         title = request.POST['title']
         video_key = request.POST['video_key']
         Video.objects.create(title=title, video_key=video_key)
-
+    
         return redirect(reverse('video:list')) 
     elif request.method == 'GET':
         return render(request, 'video/video_new.html')
@@ -46,7 +46,7 @@ def video_new(request):
 from django.conf.urls import url, include
 from . import views
 
- urlpatterns = [
+urlpatterns = [
     url(r'^$', views.video_list, name='list'),
     # 아래 코드 추가하기
     url(r'^new$', views.video_new, name='new'),

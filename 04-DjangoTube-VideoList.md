@@ -16,8 +16,7 @@ View는 어떻게 구성되어 있는지 볼까요?
 # video/views.py
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
-from .models import Video​
-
+from .models import Video
 
 def video_list(request):
     video_list = Video.objects.all()
@@ -97,7 +96,7 @@ urlpatterns = [
 <a href=“{% url ‘video:list’ %}”>링크</a>
 ```
 
-와 같이 HTML파일에서 URL​ 작성이 가능하답니다. 부가적인 설명을 드리자면, url 경로를 하나하나 다 외우기는 정말 어려운 일이니 이걸 간소화 하기 위해(쉽게 url을 찾기 위해) url 에 이름을 붙여주는 것입니다. 
+와 같이 HTML파일에서 URL 작성이 가능하답니다. 부가적인 설명을 드리자면, url 경로를 하나하나 다 외우기는 정말 어려운 일이니 이걸 간소화 하기 위해(쉽게 url을 찾기 위해) url 에 이름을 붙여주는 것입니다. 
 
 위에서 `{% url ‘video:list’ %}` 에서  `video:list` 는 video 앱 안(namespace)의 list 라는 이름(name)을 가진 링크를 불러오겠다는 얘기에요.
 
@@ -116,7 +115,7 @@ Django는 `django template` 이라는 템플릿 엔진이라는 것을 통해서
 
 ```html
 {% load staticfiles %}
-​
+
 <html>
 <head>
     <title>Video List</title>
