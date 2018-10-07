@@ -12,9 +12,7 @@ Model 안의 클래스(class) 하나당 데이터베이스 테이블이 하나�
 # video/models.py
 from django.db import models
 
-
 class Video(models.Model):
-
     title = models.CharField(max_length=200)
     video_key = models.CharField(max_length=12)
 ```

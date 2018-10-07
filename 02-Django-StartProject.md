@@ -42,6 +42,8 @@ $ cd djangogirls
 ~/djangogirls$ python manage.py migrate
 ```
 
+> 리눅스와 Mac은python 아닌 python3으로 진행해주세요!
+
 `db.sqlite3`라는 데이터베이스 파일이 생겼을 거에요.
 
 이제 웹 서버를 시작해 웹사이트가 잘 작동하는지 확인해봅시다.
