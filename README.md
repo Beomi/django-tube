@@ -18,7 +18,7 @@
 
 이 튜토리얼은 열정적인 장고걸스서울 코치와 자원봉사자들의 수고로 작성되었습니다.
 
-> 작성: [강명서](https://github.com/Leop0ld), [이소은](https://github.com/mojosoeun), [이준범](https://github.com/beomi), [황지영](https://github.com/jyhwng), [고명진](), [김지형](), [이소영](https://github.com/SoYoung210), [서미지]()
+> 작성: [강명서](https://github.com/Leop0ld), [이소은](https://github.com/mojosoeun), [이준범](https://github.com/beomi), [황지영](https://github.com/jyhwng), [고명진](https://github.com/rjs1197), [김지형](https://github.com/roamgom), [이소영](https://github.com/SoYoung210), [서미지](#)
 
 ## 도움주신 분들 {#도움주신-분들}
 
